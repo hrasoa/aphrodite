@@ -55,9 +55,14 @@ module.exports = {
         // We do not have to add the extension when importing a module.
         'import/extensions': 0,
         'import/no-extraneous-dependencies': 0,
+        'import/no-import-module-exports': 0,
+        // No!
+        'import/prefer-default-export': 0,
         'no-console': 1,
         // We do not have to add the extension when importing a module.
         'react/jsx-filename-extension': 0,
+        // Ts only is ok.
+        'react/prop-types': 0,
         // Sometimes we really want execute an effect even when not using on of the deps.
         'react-hooks/exhaustive-deps': 0,
       },
