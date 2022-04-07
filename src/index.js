@@ -57,6 +57,8 @@ module.exports = {
         'no-console': 1,
         // We do not have to add the extension when importing a module.
         'react/jsx-filename-extension': 0,
+        // React 17+
+        'react/react-in-jsx-scope': 0,
         // Sometimes we really want execute an effect even when not using on of the deps.
         'react-hooks/exhaustive-deps': 0,
       },
