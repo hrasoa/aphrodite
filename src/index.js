@@ -5,9 +5,9 @@ module.exports = {
       parserOptions: {
         project: './tsconfig.json',
       },
-      ignorePatterns: ['tools'],
       plugins: ['@typescript-eslint', 'jest', 'import'],
       extends: [
+        'airbnb',
         'airbnb-typescript',
         'airbnb/hooks',
         'plugin:jest/recommended',
