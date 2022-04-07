@@ -1,6 +1,6 @@
 module.exports = {
   configs: {
-    myConfig: {
+    typescript: {
       parser: '@typescript-eslint/parser',
       parserOptions: {
         project: './tsconfig.json',
@@ -53,16 +53,16 @@ module.exports = {
         ],
         // We do not have to add the extension when importing a module.
         'import/extensions': 0,
+        'import/no-extraneous-dependencies': 0,
         'no-console': 1,
         // We do not have to add the extension when importing a module.
         'react/jsx-filename-extension': 0,
         // Sometimes we really want execute an effect even when not using on of the deps.
         'react-hooks/exhaustive-deps': 0,
-        'import/no-extraneous-dependencies': 0,
       },
       settings: {
         'import/parsers': {
-          '@typescript-eslint/parser': ['.ts', '.tsx'],
+          '@typescript-eslint/parser': ['.ts', '.tsx', '.js', '.jsx'],
         },
         'import/extensions': ['.ts', '.tsx', '.js', '.jsx'],
         'import/resolver': {
