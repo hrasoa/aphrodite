@@ -58,6 +58,14 @@ module.exports = {
         'import/no-import-module-exports': 0,
         // No!
         'import/prefer-default-export': 0,
+        'no-use-before-define': 0,
+        '@typescript-eslint/no-use-before-define': [
+          2,
+          {
+            functions: false,
+            typedefs: false,
+          },
+        ],
         'no-console': 1,
         // In instance, inside the React.forwardRef component, the callback should be named.
         'prefer-arrow-callback': [2, { allowNamedFunctions: true }],
