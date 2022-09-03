@@ -48,6 +48,11 @@ module.exports = {
                 group: 'internal',
                 before: 'internal',
               },
+              {
+                pattern: '~/**',
+                group: 'internal',
+                before: 'internal',
+              },
             ],
             pathGroupsExcludedImportTypes: ['react'],
           },
