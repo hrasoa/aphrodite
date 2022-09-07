@@ -25,38 +25,6 @@ module.exports = {
       // "warn" or 1 - turn the rule on as a warning (doesn't affect exit code)
       // "error" or 2 - turn the rule on as an error (exit code will be 1)
       rules: {
-        'import/order': [
-          2,
-          {
-            groups: [
-              'builtin',
-              'external',
-              'internal',
-              'parent',
-              'sibling',
-              'index',
-              'object',
-            ],
-            pathGroups: [
-              {
-                pattern: 'react',
-                group: 'builtin',
-                before: 'before',
-              },
-              {
-                pattern: '@celeste-ui/**',
-                group: 'internal',
-                before: 'internal',
-              },
-              {
-                pattern: '~/**',
-                group: 'internal',
-                before: 'internal',
-              },
-            ],
-            pathGroupsExcludedImportTypes: ['react'],
-          },
-        ],
         // We do not have to add the extension when importing a module.
         'import/extensions': 0,
         'import/no-extraneous-dependencies': 0,
