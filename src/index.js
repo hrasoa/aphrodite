@@ -25,13 +25,6 @@ module.exports = {
       // "warn" or 1 - turn the rule on as a warning (doesn't affect exit code)
       // "error" or 2 - turn the rule on as an error (exit code will be 1)
       rules: {
-        // We do not have to add the extension when importing a module.
-        'import/extensions': 0,
-        'import/no-extraneous-dependencies': 0,
-        'import/no-import-module-exports': 0,
-        // No!
-        'import/prefer-default-export': 0,
-        'no-use-before-define': 0,
         '@typescript-eslint/no-use-before-define': [
           2,
           {
@@ -39,6 +32,14 @@ module.exports = {
             typedefs: false,
           },
         ],
+        '@typescript-eslint/consistent-type-definitions': [2, 'type'],
+        // We do not have to add the extension when importing a module.
+        'import/extensions': 0,
+        'import/no-extraneous-dependencies': 0,
+        'import/no-import-module-exports': 0,
+        // No!
+        'import/prefer-default-export': 0,
+        'no-use-before-define': 0,
         'no-console': 1,
         // In instance, inside the React.forwardRef component, the callback should be named.
         'prefer-arrow-callback': [2, { allowNamedFunctions: true }],
@@ -47,10 +48,10 @@ module.exports = {
         'react/jsx-filename-extension': 0,
         // Ts only is ok.
         'react/prop-types': 0,
-        // Only arrow functions for named components
+        // Only functions for named components
         'react/function-component-definition': [
           2,
-          { namedComponents: 'arrow-function' },
+          { namedComponents: 'function-declaration' },
         ],
         // If you don't care about using defaultProps for your component's props that are not required, you can disable this rule.
         'react/require-default-props': 0,
