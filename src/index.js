@@ -40,22 +40,20 @@ module.exports = {
         // No!
         'import/prefer-default-export': 0,
         'no-use-before-define': 0,
-        'no-console': 1,
         // In instance, inside the React.forwardRef component, the callback should be named.
         'prefer-arrow-callback': [2, { allowNamedFunctions: true }],
         'react/jsx-props-no-spreading': 0,
         // We do not have to add the extension when importing a module.
         'react/jsx-filename-extension': 0,
-        // Ts only is ok.
+        // Ts only.
         'react/prop-types': 0,
         // Only functions for named components
         'react/function-component-definition': [
           2,
           { namedComponents: 'function-declaration' },
         ],
-        // If you don't care about using defaultProps for your component's props that are not required, you can disable this rule.
+        // We use functional component.
         'react/require-default-props': 0,
-        'react-hooks/exhaustive-deps': 0,
       },
       settings: {
         'import/parsers': {
