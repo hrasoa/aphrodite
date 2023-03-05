@@ -54,6 +54,8 @@ module.exports = {
         ],
         // We use functional component.
         'react/require-default-props': 0,
+        // Allows <>{foo}</>
+        'react/jsx-no-useless-fragment': [2, { allowExpressions: true }],
       },
       settings: {
         'import/parsers': {
