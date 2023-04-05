@@ -39,6 +39,12 @@ module.exports = {
         'import/no-import-module-exports': 0,
         // No!
         'import/prefer-default-export': 0,
+        'jsx-a11y/label-has-associated-control': [
+          2,
+          {
+            labelAttributes: ['htmlFor'],
+          },
+        ],
         'no-use-before-define': 0,
         // In instance, inside the React.forwardRef component, the callback should be named.
         'prefer-arrow-callback': [2, { allowNamedFunctions: true }],
