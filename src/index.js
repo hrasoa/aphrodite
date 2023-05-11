@@ -53,15 +53,17 @@ module.exports = {
         'react/jsx-filename-extension': 0,
         // Ts only.
         'react/prop-types': 0,
-        // Only functions for named components
+        // Only functions for named components.
         'react/function-component-definition': [
           2,
           { namedComponents: 'function-declaration' },
         ],
         // We use functional component.
         'react/require-default-props': 0,
-        // Allows <>{foo}</>
+        // Allows return <>{foo}</>;
         'react/jsx-no-useless-fragment': [2, { allowExpressions: true }],
+        // Improves lisibility.
+        'react/jsx-sort-props': 2,
       },
       settings: {
         'import/parsers': {
