@@ -64,6 +64,8 @@ module.exports = {
         'react/jsx-no-useless-fragment': [2, { allowExpressions: true }],
         // Improves lisibility.
         'react/jsx-sort-props': 2,
+        // We do not use bind() anymore.
+        'react/jsx-no-bind': 0,
       },
       settings: {
         'import/parsers': {
