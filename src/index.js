@@ -33,6 +33,7 @@ module.exports = {
           },
         ],
         '@typescript-eslint/consistent-type-definitions': [2, 'type'],
+        'arrow-body-style': 0,
         // We do not have to add the extension when importing a module.
         'import/extensions': 0,
         'import/no-extraneous-dependencies': 0,
