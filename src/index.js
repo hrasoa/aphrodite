@@ -46,6 +46,7 @@ module.exports = {
             labelAttributes: ['htmlFor'],
           },
         ],
+        // Fixes ts, fn()
         'no-use-before-define': 0,
         // In instance, inside the React.forwardRef component, the callback should be named.
         'prefer-arrow-callback': [2, { allowNamedFunctions: true }],
