@@ -21,53 +21,50 @@ module.exports = {
         'jest/globals': true,
         browser: true,
       },
-      // "off" or 0 - turn the rule off
-      // "warn" or 1 - turn the rule on as a warning (doesn't affect exit code)
-      // "error" or 2 - turn the rule on as an error (exit code will be 1)
       rules: {
         '@typescript-eslint/no-use-before-define': [
-          2,
+          'error',
           {
             functions: false,
             typedefs: false,
           },
         ],
-        '@typescript-eslint/consistent-type-definitions': [2, 'type'],
-        'arrow-body-style': 0,
-        // We do not have to add the extension when importing a module.
-        'import/extensions': 0,
-        'import/no-extraneous-dependencies': 0,
-        'import/no-import-module-exports': 0,
-        // No!
-        'import/prefer-default-export': 0,
+        '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+        'arrow-body-style': 'off',
+        // No need to add the extension when importing a module.
+        'import/extensions': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'import/no-import-module-exports': 'off',
+        // Enforce named exports
+        'import/prefer-default-export': 'off',
         'jsx-a11y/label-has-associated-control': [
-          2,
+          'error',
           {
             labelAttributes: ['htmlFor'],
           },
         ],
-        // Fixes ts, fn()
-        'no-use-before-define': 0,
+        // Fixes fn() declarations
+        'no-use-before-define': 'off',
         // In instance, inside the React.forwardRef component, the callback should be named.
-        'prefer-arrow-callback': [2, { allowNamedFunctions: true }],
-        'react/jsx-props-no-spreading': 0,
-        // We do not have to add the extension when importing a module.
-        'react/jsx-filename-extension': 0,
-        // Ts only.
-        'react/prop-types': 0,
+        'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
+        'react/jsx-props-no-spreading': 'off',
+        // Not have to add the extension when importing a module.
+        'react/jsx-filename-extension': 'off',
+        // Legacy
+        'react/prop-types': 'off',
         // Only functions for named components.
         'react/function-component-definition': [
-          2,
+          'error',
           { namedComponents: 'function-declaration' },
         ],
-        // We use functional component.
-        'react/require-default-props': 0,
+        // Use functional component.
+        'react/require-default-props': 'off',
         // Allows return <>{foo}</>;
-        'react/jsx-no-useless-fragment': [2, { allowExpressions: true }],
+        'react/jsx-no-useless-fragment': ['error', { allowExpressions: true }],
         // Improves lisibility.
-        'react/jsx-sort-props': 2,
-        // We do not use bind() anymore.
-        'react/jsx-no-bind': 0,
+        'react/jsx-sort-props': 'error',
+        // Not use bind() anymore.
+        'react/jsx-no-bind': 'off',
       },
       settings: {
         'import/parsers': {
