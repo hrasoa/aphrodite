@@ -37,6 +37,7 @@ module.exports = {
         'import/no-import-module-exports': 'off',
         // Enforce named exports
         'import/prefer-default-export': 'off',
+        'import/no-unresolved': 'error',
         'jsx-a11y/label-has-associated-control': [
           'error',
           {
@@ -69,17 +70,15 @@ module.exports = {
       settings: {
         'import/parsers': {
           '@typescript-eslint/parser': ['.ts', '.tsx', '.js', '.jsx'],
-          // https://stackoverflow.com/a/55280867/1847084
-          node: {
-            extensions: ['.js', '.jsx', '.ts', '.tsx'],
-          },
         },
         'import/extensions': ['.ts', '.tsx', '.js', '.jsx'],
         'import/resolver': {
           typescript: {
-            // Always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`.
-            // This make our linked packages work.
             alwaysTryTypes: true,
+            project: '**/*/tsconfig.json',
+            node: {
+              extensions: ['.js', '.jsx', '.ts', '.tsx'],
+            },
           },
         },
         react: { version: 'detect' },
