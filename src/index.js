@@ -38,6 +38,32 @@ module.exports = {
         // Enforce named exports
         'import/prefer-default-export': 'off',
         'import/no-unresolved': 'error',
+        'import/order': [
+          'error',
+          {
+            groups: [
+              'builtin',
+              'external',
+              'internal',
+              'parent',
+              'sibling',
+              'index',
+              'object',
+            ],
+            pathGroups: [
+              {
+                pattern: 'react',
+                group: 'builtin',
+              },
+              {
+                pattern: '~/**',
+                group: 'internal',
+              },
+            ],
+            pathGroupsExcludedImportTypes: ['react'],
+            alphabetize: { order: 'asc', caseInsensitive: true },
+          },
+        ],
         'jsx-a11y/label-has-associated-control': [
           'error',
           {
