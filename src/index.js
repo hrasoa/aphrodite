@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 module.exports = {
   configs: {
     typescript: {
@@ -7,14 +8,15 @@ module.exports = {
       },
       plugins: ['@typescript-eslint', 'jest', 'import'],
       extends: [
-        'airbnb',
-        'airbnb-typescript',
-        'airbnb/hooks',
+        'eslint:recommended',
         'plugin:import/errors',
         'plugin:import/warnings',
         'plugin:import/typescript',
+        'plugin:jsx-a11y/recommended',
         'plugin:jest/recommended',
+        'plugin:react/recommended',
         'plugin:react/jsx-runtime',
+        'plugin:react-hooks/recommended',
         'prettier',
       ],
       env: {
@@ -89,7 +91,12 @@ module.exports = {
         // Allows return <>{foo}</>;
         'react/jsx-no-useless-fragment': ['error', { allowExpressions: true }],
         // Improves lisibility.
-        'react/jsx-sort-props': 'error',
+        'react/jsx-sort-props': [
+          'error',
+          {
+            reservedFirst: true,
+          },
+        ],
         // Not use bind() anymore.
         'react/jsx-no-bind': 'off',
       },
