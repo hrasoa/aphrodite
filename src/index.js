@@ -14,8 +14,8 @@ module.exports = {
         'plugin:import/warnings',
         'plugin:jsx-a11y/recommended',
         'plugin:react-hooks/recommended',
-        'plugin:react/jsx-runtime',
         'plugin:react/recommended',
+        'plugin:react/jsx-runtime',
         'prettier',
       ],
       rules: {
@@ -97,6 +97,9 @@ module.exports = {
         'react/jsx-no-bind': 'off',
       },
       settings: {
+        languageOptions: {
+          globals: [{ React: 'readonly' }],
+        },
         'import/parsers': {
           '@typescript-eslint/parser': ['.ts', '.tsx', '.js', '.jsx'],
         },
