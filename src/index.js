@@ -6,7 +6,7 @@ module.exports = {
       parserOptions: {
         project: './tsconfig.json',
       },
-      plugins: ['@typescript-eslint', 'jest', 'import'],
+      plugins: ['@typescript-eslint', 'import'],
       extends: [
         'eslint:recommended',
         'plugin:import/errors',
@@ -19,10 +19,6 @@ module.exports = {
         'plugin:react-hooks/recommended',
         'prettier',
       ],
-      env: {
-        'jest/globals': true,
-        browser: true,
-      },
       rules: {
         '@typescript-eslint/no-use-before-define': [
           'error',
