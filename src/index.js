@@ -12,7 +12,6 @@ module.exports = {
         'plugin:import/errors',
         'plugin:import/typescript',
         'plugin:import/warnings',
-        'plugin:jest/recommended',
         'plugin:jsx-a11y/recommended',
         'plugin:react-hooks/recommended',
         'plugin:react/jsx-runtime',
@@ -68,6 +67,7 @@ module.exports = {
             labelAttributes: ['htmlFor'],
           },
         ],
+        'no-console': 'error',
         // Fixes fn() declarations
         'no-use-before-define': 'off',
         // In instance, inside the React.forwardRef component, the callback should be named.
