@@ -10,13 +10,13 @@ module.exports = {
       extends: [
         'eslint:recommended',
         'plugin:import/errors',
-        'plugin:import/warnings',
         'plugin:import/typescript',
-        'plugin:jsx-a11y/recommended',
+        'plugin:import/warnings',
         'plugin:jest/recommended',
-        'plugin:react/recommended',
-        'plugin:react/jsx-runtime',
+        'plugin:jsx-a11y/recommended',
         'plugin:react-hooks/recommended',
+        'plugin:react/jsx-runtime',
+        'plugin:react/recommended',
         'prettier',
       ],
       rules: {
