@@ -67,7 +67,7 @@ module.exports = {
             labelAttributes: ['htmlFor'],
           },
         ],
-        'no-console': 'error',
+        'no-console': 'warn',
         // Fixes fn() declarations
         'no-use-before-define': 'off',
         // In instance, inside the React.forwardRef component, the callback should be named.
