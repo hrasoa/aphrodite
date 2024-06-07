@@ -9,6 +9,7 @@ module.exports = {
       plugins: ['@typescript-eslint', 'import'],
       extends: [
         'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
         'plugin:import/errors',
         'plugin:import/typescript',
         'plugin:import/warnings',
@@ -91,15 +92,13 @@ module.exports = {
           'error',
           {
             reservedFirst: true,
+            ignoreCase: true,
           },
         ],
         // Not use bind() anymore.
         'react/jsx-no-bind': 'off',
       },
       settings: {
-        languageOptions: {
-          globals: [{ React: 'readonly' }],
-        },
         'import/parsers': {
           '@typescript-eslint/parser': ['.ts', '.tsx', '.js', '.jsx'],
         },
