@@ -27,6 +27,15 @@ module.exports = {
             typedefs: false,
           },
         ],
+        '@typescript-eslint/naming-convention': [
+          'error',
+          {
+            selector: ['variable'],
+            format: ['PascalCase', 'camelCase', 'snake_case', 'UPPER_CASE'],
+            leadingUnderscore: 'allow',
+          },
+        ],
+        'no-underscore-dangle': 'off',
         '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
         'arrow-body-style': 'off',
         // No need to add the extension when importing a module.
