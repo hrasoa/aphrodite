@@ -95,8 +95,6 @@ module.exports = {
             ignoreCase: true,
           },
         ],
-        // Not use bind() anymore.
-        'react/jsx-no-bind': 'off',
       },
       settings: {
         'import/parsers': {
