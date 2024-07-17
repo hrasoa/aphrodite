@@ -35,12 +35,14 @@ module.exports = {
             leadingUnderscore: 'allow',
           },
         ],
+        // Array<>
+        '@typescript-eslint/array-type': ['error', { default: 'generic' }],
+        '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
         // Prevents:
         // .map(a => {
         //    .map(a => {
         'no-shadow': 'error',
         'no-underscore-dangle': 'off',
-        '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
         'arrow-body-style': 'off',
         // No need to add the extension when importing a module.
         'import/extensions': 'off',
