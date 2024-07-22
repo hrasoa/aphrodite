@@ -37,7 +37,11 @@ module.exports = {
         ],
         // Array<>
         '@typescript-eslint/array-type': ['error', { default: 'generic' }],
+        // Use only Type
         '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+        // import { type ... }
+        '@typescript-eslint/consistent-type-exports': 'error',
+        '@typescript-eslint/consistent-type-imports': 'error',
         // Prevents:
         // .map(a => {
         //    .map(a => {
