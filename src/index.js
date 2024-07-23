@@ -66,6 +66,7 @@ module.exports = {
               'sibling',
               'index',
               'object',
+              'type',
             ],
             pathGroups: [
               {
