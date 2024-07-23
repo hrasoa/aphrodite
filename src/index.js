@@ -41,7 +41,12 @@ module.exports = {
         '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
         // import { type ... }
         '@typescript-eslint/consistent-type-exports': 'error',
-        '@typescript-eslint/consistent-type-imports': 'error',
+        '@typescript-eslint/consistent-type-imports': [
+          'error',
+          {
+            fixStyle: 'inline-type-imports',
+          },
+        ],
         // Prevents:
         // .map(a => {
         //    .map(a => {
@@ -64,9 +69,9 @@ module.exports = {
               'internal',
               'parent',
               'sibling',
+              'type',
               'index',
               'object',
-              'type',
             ],
             pathGroups: [
               {
@@ -79,7 +84,11 @@ module.exports = {
               },
             ],
             pathGroupsExcludedImportTypes: ['react'],
-            alphabetize: { order: 'asc', caseInsensitive: true },
+            alphabetize: {
+              caseInsensitive: true,
+              order: 'asc',
+              orderImportKind: 'desc',
+            },
           },
         ],
         'jsx-a11y/label-has-associated-control': [
