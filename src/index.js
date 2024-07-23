@@ -41,12 +41,7 @@ module.exports = {
         '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
         // import { type ... }
         '@typescript-eslint/consistent-type-exports': 'error',
-        '@typescript-eslint/consistent-type-imports': [
-          'error',
-          {
-            fixStyle: 'inline-type-imports',
-          },
-        ],
+        '@typescript-eslint/consistent-type-imports': 'error',
         // Prevents:
         // .map(a => {
         //    .map(a => {
