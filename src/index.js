@@ -1,6 +1,49 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   configs: {
+    react: {
+      extends: [
+        'plugin:jsx-a11y/recommended',
+        'plugin:react-hooks/recommended',
+        'plugin:react/recommended',
+        'plugin:react/jsx-runtime',
+      ],
+      rules: {
+        'jsx-a11y/label-has-associated-control': [
+          'error',
+          {
+            labelAttributes: ['htmlFor'],
+          },
+        ],
+        // In instance, inside the React.forwardRef component, the callback should be named.
+        'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
+        'react/jsx-props-no-spreading': 'off',
+        // Not have to add the extension when importing a module.
+        'react/jsx-filename-extension': 'off',
+        // Legacy
+        'react/prop-types': 'off',
+        // Only functions for named components.
+        'react/function-component-definition': [
+          'error',
+          { namedComponents: 'function-declaration' },
+        ],
+        // Use functional component.
+        'react/require-default-props': 'off',
+        // Allows return <>{foo}</>;
+        'react/jsx-no-useless-fragment': ['error', { allowExpressions: true }],
+        // Improves lisibility.
+        'react/jsx-sort-props': [
+          'error',
+          {
+            reservedFirst: true,
+            ignoreCase: true,
+          },
+        ],
+      },
+      settings: {
+        react: { version: 'detect' },
+      },
+    },
     typescript: {
       parser: '@typescript-eslint/parser',
       parserOptions: {
@@ -13,10 +56,6 @@ module.exports = {
         'plugin:import/errors',
         'plugin:import/typescript',
         'plugin:import/warnings',
-        'plugin:jsx-a11y/recommended',
-        'plugin:react-hooks/recommended',
-        'plugin:react/recommended',
-        'plugin:react/jsx-runtime',
         'prettier',
       ],
       rules: {
@@ -87,39 +126,9 @@ module.exports = {
             },
           },
         ],
-        'jsx-a11y/label-has-associated-control': [
-          'error',
-          {
-            labelAttributes: ['htmlFor'],
-          },
-        ],
         'no-console': 'warn',
         // Fixes fn() declarations
         'no-use-before-define': 'off',
-        // In instance, inside the React.forwardRef component, the callback should be named.
-        'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
-        'react/jsx-props-no-spreading': 'off',
-        // Not have to add the extension when importing a module.
-        'react/jsx-filename-extension': 'off',
-        // Legacy
-        'react/prop-types': 'off',
-        // Only functions for named components.
-        'react/function-component-definition': [
-          'error',
-          { namedComponents: 'function-declaration' },
-        ],
-        // Use functional component.
-        'react/require-default-props': 'off',
-        // Allows return <>{foo}</>;
-        'react/jsx-no-useless-fragment': ['error', { allowExpressions: true }],
-        // Improves lisibility.
-        'react/jsx-sort-props': [
-          'error',
-          {
-            reservedFirst: true,
-            ignoreCase: true,
-          },
-        ],
       },
       settings: {
         'import/parsers': {
@@ -135,7 +144,6 @@ module.exports = {
             },
           },
         },
-        react: { version: 'detect' },
       },
     },
   },
