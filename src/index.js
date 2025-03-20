@@ -88,6 +88,7 @@ module.exports = {
         // No need to add the extension when importing a module.
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
+        'import/no-cycle': 'error',
         'import/no-import-module-exports': 'off',
         // Enforce named exports
         'import/prefer-default-export': 'off',
