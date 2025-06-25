@@ -112,6 +112,10 @@ module.exports = {
                 group: 'builtin',
               },
               {
+                pattern: 'react-dom',
+                group: 'builtin',
+              },
+              {
                 pattern: '~/**',
                 group: 'internal',
               },
