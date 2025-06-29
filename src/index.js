@@ -134,9 +134,9 @@ module.exports = {
       },
       settings: {
         'import/parsers': {
-          '@typescript-eslint/parser': ['.ts', '.tsx', '.js', '.jsx'],
+          '@typescript-eslint/parser': ['.ts', '.tsx'],
         },
-        'import/extensions': ['.ts', '.tsx', '.js', '.jsx'],
+        'import/extensions': ['.ts', '.tsx'],
         'import/resolver': {
           typescript: {
             alwaysTryTypes: true,
