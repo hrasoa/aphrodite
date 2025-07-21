@@ -30,6 +30,41 @@ export default {
         ...reactHooks.configs.recommended.rules,
         ...react.configs.recommended.rules,
         ...react.configs['jsx-runtime'].rules,
+        'import/order': [
+          'error',
+          {
+            groups: [
+              'builtin',
+              'external',
+              'internal',
+              'parent',
+              'sibling',
+              'type',
+              'index',
+              'object',
+            ],
+            pathGroups: [
+              {
+                pattern: 'react',
+                group: 'builtin',
+              },
+              {
+                pattern: 'react-dom',
+                group: 'builtin',
+              },
+              {
+                pattern: '~/**',
+                group: 'internal',
+              },
+            ],
+            pathGroupsExcludedImportTypes: ['react'],
+            alphabetize: {
+              caseInsensitive: true,
+              order: 'asc',
+              orderImportKind: 'desc',
+            },
+          },
+        ],
         'jsx-a11y/label-has-associated-control': [
           'error',
           {
@@ -146,19 +181,10 @@ export default {
             ],
             pathGroups: [
               {
-                pattern: 'react',
-                group: 'builtin',
-              },
-              {
-                pattern: 'react-dom',
-                group: 'builtin',
-              },
-              {
                 pattern: '~/**',
                 group: 'internal',
               },
             ],
-            pathGroupsExcludedImportTypes: ['react'],
             alphabetize: {
               caseInsensitive: true,
               order: 'asc',
