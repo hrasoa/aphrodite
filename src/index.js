@@ -7,10 +7,19 @@ import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import prettierConfig from 'eslint-config-prettier';
+import globals from 'globals';
 
 export default {
   configs: {
     react: {
+      languageOptions: {
+        globals: {
+          ...globals.browser,
+          ...globals.es2021,
+          React: 'readonly',
+          JSX: 'readonly',
+        },
+      },
       plugins: {
         'jsx-a11y': fixupPluginRules(jsxA11y),
         'react-hooks': fixupPluginRules(reactHooks),
@@ -62,6 +71,10 @@ export default {
         parserOptions: {
           ecmaVersion: 'latest',
           sourceType: 'module',
+        },
+        globals: {
+          ...globals.node,
+          ...globals.es2021,
         },
       },
       plugins: {
