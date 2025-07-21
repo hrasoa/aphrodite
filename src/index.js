@@ -1,14 +1,26 @@
-// eslint-disable-next-line no-undef
-module.exports = {
+import { fixupPluginRules } from '@eslint/compat';
+import js from '@eslint/js';
+import tseslint from '@typescript-eslint/eslint-plugin';
+import tsparser from '@typescript-eslint/parser';
+import importPlugin from 'eslint-plugin-import';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import prettierConfig from 'eslint-config-prettier';
+
+export default {
   configs: {
     react: {
-      extends: [
-        'plugin:jsx-a11y/recommended',
-        'plugin:react-hooks/recommended',
-        'plugin:react/recommended',
-        'plugin:react/jsx-runtime',
-      ],
+      plugins: {
+        'jsx-a11y': fixupPluginRules(jsxA11y),
+        'react-hooks': fixupPluginRules(reactHooks),
+        react: fixupPluginRules(react),
+      },
       rules: {
+        ...jsxA11y.configs.recommended.rules,
+        ...reactHooks.configs.recommended.rules,
+        ...react.configs.recommended.rules,
+        ...react.configs['jsx-runtime'].rules,
         'jsx-a11y/label-has-associated-control': [
           'error',
           {
@@ -45,17 +57,24 @@ module.exports = {
       },
     },
     typescript: {
-      parser: '@typescript-eslint/parser',
-      plugins: ['@typescript-eslint', 'import'],
-      extends: [
-        'eslint:recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:import/errors',
-        'plugin:import/typescript',
-        'plugin:import/warnings',
-        'prettier',
-      ],
+      languageOptions: {
+        parser: tsparser,
+        parserOptions: {
+          ecmaVersion: 'latest',
+          sourceType: 'module',
+        },
+      },
+      plugins: {
+        '@typescript-eslint': tseslint,
+        import: fixupPluginRules(importPlugin),
+      },
       rules: {
+        ...js.configs.recommended.rules,
+        ...tseslint.configs.recommended.rules,
+        ...importPlugin.configs.errors.rules,
+        ...importPlugin.configs.warnings.rules,
+        ...importPlugin.configs.typescript.rules,
+        ...prettierConfig.rules,
         '@typescript-eslint/no-use-before-define': [
           'error',
           {
