@@ -26,9 +26,6 @@ export default {
             ...globals.browser,
           },
         },
-        plugins: {
-          react,
-        },
         rules: {
           'import/order': [
             'error',
