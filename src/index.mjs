@@ -16,6 +16,7 @@ export default {
       jsxA11y.flatConfigs.recommended,
       reactHooks.configs['recommended-latest'],
       {
+        files: ['**/*.{ts,tsx}'],
         languageOptions: {
           parserOptions: {
             ecmaFeatures: {
@@ -26,6 +27,10 @@ export default {
             ...globals.browser,
           },
         },
+        extends: [
+          importPlugin.flatConfigs.recommended,
+          importPlugin.flatConfigs.typescript,
+        ],
         rules: {
           'import/order': [
             'error',
