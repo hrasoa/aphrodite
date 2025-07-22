@@ -106,7 +106,7 @@ export default {
         },
       },
     },
-    typescript: tseslint.config({
+    typescript: tseslint.config(tseslint.configs.recommendedTypeChecked, {
       languageOptions: {
         parser: tseslint.parser,
         parserOptions: {
