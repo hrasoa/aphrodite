@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "type": "module",
   "description": "",
-  "main": "src/index.js",
+  "main": "src/index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
