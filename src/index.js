@@ -1,7 +1,6 @@
 import { fixupPluginRules } from '@eslint/compat';
 import js from '@eslint/js';
-import tseslint from '@typescript-eslint/eslint-plugin';
-import tsparser from '@typescript-eslint/parser';
+import tseslint from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
@@ -107,9 +106,9 @@ export default {
         },
       },
     },
-    typescript: {
+    typescript: tseslint.config({
       languageOptions: {
-        parser: tsparser,
+        parser: tseslint.parser,
         parserOptions: {
           ecmaVersion: 'latest',
           sourceType: 'module',
@@ -118,12 +117,13 @@ export default {
           ...globals.es2021,
         },
       },
-      plugins: {
-        '@typescript-eslint': tseslint,
-        import: fixupPluginRules(importPlugin),
-      },
+      extends: [
+        js.configs.recommended,
+        tseslint.configs.recommended,
+        importPlugin.flatConfigs.recommended,
+        importPlugin.flatConfigs.typescript,
+      ],
       rules: {
-        ...js.configs.recommended.rules,
         ...tseslint.configs.recommended.rules,
         ...importPlugin.configs.errors.rules,
         ...importPlugin.configs.warnings.rules,
@@ -210,6 +210,6 @@ export default {
           },
         },
       },
-    },
+    }),
   },
 };
