@@ -99,13 +99,6 @@ export default {
         react: { version: 'detect' },
       },
     },
-    node: {
-      languageOptions: {
-        globals: {
-          ...globals.node,
-        },
-      },
-    },
     typescript: tseslint.config(tseslint.configs.recommendedTypeChecked, {
       languageOptions: {
         parser: tseslint.parser,
