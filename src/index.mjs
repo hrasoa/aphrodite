@@ -10,116 +10,100 @@ import { defineConfig } from 'eslint/config';
 
 export default {
   configs: {
-    react: defineConfig([
-      react.configs.flat.recommended,
-      react.configs.flat['jsx-runtime'],
-      jsxA11y.flatConfigs.recommended,
-      reactHooks.configs['recommended-latest'],
-      {
-        files: ['**/*.{ts,tsx}'],
-        languageOptions: {
-          parserOptions: {
-            ecmaFeatures: {
-              jsx: true,
-            },
+    react: {
+      languageOptions: {
+        parserOptions: {
+          ecmaFeatures: {
+            jsx: true,
           },
-          globals: {
-            ...globals.browser,
-          },
-        },
-        extends: [
-          importPlugin.flatConfigs.recommended,
-          importPlugin.flatConfigs.typescript,
-        ],
-        rules: {
-          'import/order': [
-            'error',
-            {
-              groups: [
-                'builtin',
-                'external',
-                'internal',
-                'parent',
-                'sibling',
-                'type',
-                'index',
-                'object',
-              ],
-              pathGroups: [
-                {
-                  pattern: 'react',
-                  group: 'builtin',
-                },
-                {
-                  pattern: 'react-dom',
-                  group: 'builtin',
-                },
-                {
-                  pattern: '~/**',
-                  group: 'internal',
-                },
-              ],
-              pathGroupsExcludedImportTypes: ['react'],
-              alphabetize: {
-                caseInsensitive: true,
-                order: 'asc',
-                orderImportKind: 'desc',
-              },
-            },
-          ],
-          'jsx-a11y/label-has-associated-control': [
-            'error',
-            {
-              labelAttributes: ['htmlFor'],
-            },
-          ],
-          // In instance, inside the React.forwardRef component, the callback should be named.
-          'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
-          'react/jsx-props-no-spreading': 'off',
-          // Not have to add the extension when importing a module.
-          'react/jsx-filename-extension': 'off',
-          // Only functions for named components.
-          'react/function-component-definition': [
-            'error',
-            { namedComponents: 'function-declaration' },
-          ],
-          'react/prop-types': 'off',
-          // Use functional component.
-          'react/require-default-props': 'off',
-          // Allows return <>{foo}</>;
-          'react/jsx-no-useless-fragment': [
-            'error',
-            { allowExpressions: true },
-          ],
-          // Improves lisibility.
-          'react/jsx-sort-props': [
-            'error',
-            {
-              reservedFirst: true,
-              ignoreCase: true,
-            },
-          ],
-        },
-        settings: {
-          react: { version: 'detect' },
         },
       },
-    ]),
+      plugins: {
+        react,
+        'jsx-a11y': jsxA11y,
+        'react-hooks': reactHooks,
+      },
+      rules: {
+        'import/order': [
+          'error',
+          {
+            groups: [
+              'builtin',
+              'external',
+              'internal',
+              'parent',
+              'sibling',
+              'type',
+              'index',
+              'object',
+            ],
+            pathGroups: [
+              {
+                pattern: 'react',
+                group: 'builtin',
+              },
+              {
+                pattern: 'react-dom',
+                group: 'builtin',
+              },
+              {
+                pattern: '~/**',
+                group: 'internal',
+              },
+            ],
+            pathGroupsExcludedImportTypes: ['react'],
+            alphabetize: {
+              caseInsensitive: true,
+              order: 'asc',
+              orderImportKind: 'desc',
+            },
+          },
+        ],
+        'jsx-a11y/label-has-associated-control': [
+          'error',
+          {
+            labelAttributes: ['htmlFor'],
+          },
+        ],
+        // In instance, inside the React.forwardRef component, the callback should be named.
+        'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
+        'react/jsx-props-no-spreading': 'off',
+        // Not have to add the extension when importing a module.
+        'react/jsx-filename-extension': 'off',
+        // Only functions for named components.
+        'react/function-component-definition': [
+          'error',
+          { namedComponents: 'function-declaration' },
+        ],
+        'react/prop-types': 'off',
+        // Use functional component.
+        'react/require-default-props': 'off',
+        // Allows return <>{foo}</>;
+        'react/jsx-no-useless-fragment': ['error', { allowExpressions: true }],
+        // Improves lisibility.
+        'react/jsx-sort-props': [
+          'error',
+          {
+            reservedFirst: true,
+            ignoreCase: true,
+          },
+        ],
+      },
+      settings: {
+        react: { version: 'detect' },
+      },
+    },
     typescript: tseslint.config(
       js.configs.recommended,
       tseslint.configs.strict,
       tseslint.configs.recommendedTypeChecked,
       prettierConfig,
       {
-        files: ['**/*.{ts,tsx}'],
         languageOptions: {
           parser: tseslint.parser,
           parserOptions: {
             ecmaVersion: 'latest',
             sourceType: 'module',
-          },
-          globals: {
-            ...globals.es2021,
           },
         },
         extends: [
@@ -203,7 +187,7 @@ export default {
             typescript: {
               alwaysTryTypes: true,
               node: {
-                extensions: ['.js', '.jsx', '.ts', '.tsx'],
+                extensions: ['.js', '.ts', '.tsx'],
               },
             },
           },
