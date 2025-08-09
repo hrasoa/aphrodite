@@ -5,6 +5,7 @@ import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import prettierConfig from 'eslint-config-prettier/flat';
+import unusedImports from 'eslint-plugin-unused-imports';
 
 export default {
   configs: {
@@ -104,6 +105,9 @@ export default {
             sourceType: 'module',
           },
         },
+        plugins: {
+          'unused-imports': unusedImports,
+        },
         extends: [
           importPlugin.flatConfigs.recommended,
           importPlugin.flatConfigs.typescript,
@@ -175,6 +179,7 @@ export default {
           'no-console': 'warn',
           // Fixes fn() declarations
           'no-use-before-define': 'off',
+          'unused-imports/no-unused-imports': 'error',
         },
         settings: {
           'import/parsers': {
