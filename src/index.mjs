@@ -4,7 +4,7 @@ import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import prettierConfig from 'eslint-config-prettier/flat';
+import prettierConfig from 'eslint-plugin-prettier/recommended';
 import unusedImports from 'eslint-plugin-unused-imports';
 import { defineConfig } from 'eslint/config';
 
@@ -13,6 +13,8 @@ export default {
     react: defineConfig(
       reactHooks.configs['recommended-latest'],
       jsxA11y.flatConfigs.recommended,
+      // react.configs.flat.recommended,
+      // react.configs.flat['jsx-runtime'],
       {
         languageOptions: {
           parserOptions: {
@@ -95,11 +97,13 @@ export default {
         },
       }
     ),
+    formatter: defineConfig(
+      prettierConfig,
+    ),
     typescript: tseslint.config(
       js.configs.recommended,
       tseslint.configs.strict,
       tseslint.configs.recommendedTypeChecked,
-      prettierConfig,
       {
         languageOptions: {
           parser: tseslint.parser,
