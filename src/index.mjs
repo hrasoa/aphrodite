@@ -78,6 +78,9 @@ export default {
             'error',
             { allowExpressions: true },
           ],
+          'jsx-a11y/no-static-element-interactions': 'off',
+          'jsx-a11y/click-events-have-key-events': 'off',
+          'jsx-a11y/no-autofocus': 'off',
           // Improves lisibility.
           'react/jsx-sort-props': [
             'error',
