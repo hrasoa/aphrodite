@@ -116,6 +116,15 @@ export default {
           importPlugin.flatConfigs.typescript,
         ],
         rules: {
+          // fixes:
+          //   const opened = {
+          //     icon: icon_opened_id && icon_opened_type ? {
+          //       id: icon_opened_id, // error
+          //       type: icon_opened_type, // error
+          //     } : null,
+          //     icon_custom_id: icon_opened_custom?.id || null, // error
+          //   };
+          '@typescript-eslint/no-unsafe-assignment': 'off',
           '@typescript-eslint/no-use-before-define': [
             'error',
             {
