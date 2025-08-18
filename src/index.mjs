@@ -12,9 +12,9 @@ export default {
   configs: {
     react: defineConfig(
       reactHooks.configs['recommended-latest'],
+      react.configs.flat.recommended,
+      react.configs.flat['jsx-runtime'],
       jsxA11y.flatConfigs.recommended,
-      // react.configs.flat.recommended,
-      // react.configs.flat['jsx-runtime'],
       {
         languageOptions: {
           parserOptions: {
@@ -22,9 +22,6 @@ export default {
               jsx: true,
             },
           },
-        },
-        plugins: {
-          react,
         },
         rules: {
           'import/order': [
@@ -62,28 +59,11 @@ export default {
               },
             },
           ],
-          // In instance, inside the React.forwardRef component, the callback should be named.
-          'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
-          'react/jsx-props-no-spreading': 'off',
-          // Not have to add the extension when importing a module.
-          'react/jsx-filename-extension': 'off',
-          // Only functions for named components.
-          'react/function-component-definition': [
-            'error',
-            { namedComponents: 'function-declaration' },
-          ],
-          'react/prop-types': 'off',
-          // Use functional component.
-          'react/require-default-props': 'off',
-          // Allows return <>{foo}</>;
-          'react/jsx-no-useless-fragment': [
-            'error',
-            { allowExpressions: true },
-          ],
-          'jsx-a11y/no-static-element-interactions': 'off',
           'jsx-a11y/click-events-have-key-events': 'off',
           'jsx-a11y/no-autofocus': 'off',
-          // Improves lisibility.
+          'jsx-a11y/no-static-element-interactions': 'off',
+          // In instance named callback inside the `forwardRef`.
+          'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
           'react/jsx-sort-props': [
             'error',
             {
@@ -91,15 +71,26 @@ export default {
               ignoreCase: true,
             },
           ],
+          'react/function-component-definition': [
+            'error',
+            { namedComponents: 'function-declaration' },
+          ],
+          'react/jsx-props-no-spreading': 'off',
+          'react/jsx-filename-extension': 'off',
+          // Allows return <>{foo}</>;
+          'react/jsx-no-useless-fragment': [
+            'error',
+            { allowExpressions: true },
+          ],
+          'react/prop-types': 'off',
+          'react/require-default-props': 'off',
         },
         settings: {
           react: { version: 'detect' },
         },
       }
     ),
-    formatter: defineConfig(
-      prettierConfig,
-    ),
+    formatter: defineConfig(prettierConfig),
     typescript: tseslint.config(
       js.configs.recommended,
       tseslint.configs.strict,
@@ -121,14 +112,13 @@ export default {
         ],
         rules: {
           // fixes:
-          //   const opened = {
-          //     icon: icon_opened_id && icon_opened_type ? {
-          //       id: icon_opened_id, // error
-          //       type: icon_opened_type, // error
+          //   const x = {
+          //     a: b ? {
+          //       c: b, // error
           //     } : null,
-          //     icon_custom_id: icon_opened_custom?.id || null, // error
           //   };
           '@typescript-eslint/no-unsafe-assignment': 'off',
+          'no-use-before-define': 'off',
           '@typescript-eslint/no-use-before-define': [
             'error',
             {
@@ -146,26 +136,21 @@ export default {
           ],
           // Array<>
           '@typescript-eslint/array-type': ['error', { default: 'generic' }],
-          // Use only Type
           '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
           '@typescript-eslint/consistent-type-exports': 'error',
-          // import type { } from ''
           '@typescript-eslint/consistent-type-imports': 'error',
+          '@typescript-eslint/no-redeclare': 'off',
           '@typescript-eslint/no-import-type-side-effects': 'error',
-          // Prevents:
-          // .map(a => {
-          //    .map(a => {
-          'no-shadow': 'error',
-          'no-underscore-dangle': 'off',
           'arrow-body-style': 'off',
-          // No need to add the extension when importing a module.
           'import/extensions': 'off',
+          'import/no-cycle': [
+            'error',
+            { allowUnsafeDynamicCyclicDependency: true },
+          ],
           'import/no-extraneous-dependencies': 'off',
-          'import/no-cycle': 'error',
           'import/no-import-module-exports': 'off',
-          // Enforce named exports
-          'import/prefer-default-export': 'off',
           'import/no-unresolved': 'error',
+          'import/prefer-default-export': 'off',
           'import/order': [
             'error',
             {
@@ -193,8 +178,12 @@ export default {
             },
           ],
           'no-console': 'warn',
-          // Fixes fn() declarations
-          'no-use-before-define': 'off',
+          'no-redeclare': 'off',
+          // Prevents:
+          // .map(a => {
+          //    .map(a => {
+          'no-shadow': 'error',
+          'no-underscore-dangle': 'off',
           'unused-imports/no-unused-imports': 'error',
         },
         settings: {
@@ -206,7 +195,7 @@ export default {
             typescript: {
               alwaysTryTypes: true,
               node: {
-                extensions: ['.js', '.ts', '.tsx'],
+                extensions: ['.ts', '.tsx'],
               },
             },
           },
