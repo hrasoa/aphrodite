@@ -184,6 +184,7 @@ export default {
           //    .map(a => {
           'no-shadow': 'error',
           'no-underscore-dangle': 'off',
+          'object-shorthand': ['error', 'always'],
           'unused-imports/no-unused-imports': 'error',
         },
         settings: {
