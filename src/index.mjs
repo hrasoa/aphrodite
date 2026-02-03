@@ -126,6 +126,12 @@ export default {
               typedefs: false,
             },
           ],
+          '@typescript-eslint/no-misused-promises': [
+            'error',
+            {
+              'checksVoidReturn': false
+            }
+          ],
           '@typescript-eslint/naming-convention': [
             'error',
             {
