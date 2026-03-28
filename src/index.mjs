@@ -93,9 +93,7 @@ export default {
     formatter: defineConfig(prettierConfig),
     typescript: defineConfig(
       js.configs.recommended,
-      tseslint.configs.recommended,
-      tseslint.configs.strict,
-      tseslint.configs.recommendedTypeChecked,
+      tseslint.configs.strictTypeChecked,
       {
         languageOptions: {
           parser: tseslint.parser,
