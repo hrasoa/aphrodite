@@ -11,7 +11,7 @@ import { defineConfig } from 'eslint/config';
 export default {
   configs: {
     react: defineConfig(
-      reactHooks.configs['recommended-latest'],
+      reactHooks.configs.flat.recommended,
       react.configs.flat.recommended,
       react.configs.flat['jsx-runtime'],
       jsxA11y.flatConfigs.recommended,
@@ -86,13 +86,14 @@ export default {
           'react/require-default-props': 'off',
         },
         settings: {
-          react: { version: 'detect' },
+          react: { version: '19' },
         },
       }
     ),
     formatter: defineConfig(prettierConfig),
-    typescript: tseslint.config(
+    typescript: defineConfig(
       js.configs.recommended,
+      tseslint.configs.recommended,
       tseslint.configs.strict,
       tseslint.configs.recommendedTypeChecked,
       {
