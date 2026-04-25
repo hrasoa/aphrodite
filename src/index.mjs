@@ -146,6 +146,9 @@ export default {
           '@typescript-eslint/consistent-type-imports': 'error',
           '@typescript-eslint/no-redeclare': 'off',
           '@typescript-eslint/no-import-type-side-effects': 'error',
+          '@typescript-eslint/restrict-template-expressions': ['error', {
+            'allowNumber': true,
+          }],
           'arrow-body-style': 'off',
           'import/extensions': 'off',
           'import/no-cycle': [
