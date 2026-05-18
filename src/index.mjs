@@ -24,41 +24,41 @@ export default {
           },
         },
         rules: {
-          'import/order': [
-            'error',
-            {
-              groups: [
-                'builtin',
-                'external',
-                'internal',
-                'parent',
-                'sibling',
-                'type',
-                'index',
-                'object',
-              ],
-              pathGroups: [
-                {
-                  pattern: 'react',
-                  group: 'builtin',
-                },
-                {
-                  pattern: 'react-dom',
-                  group: 'builtin',
-                },
-                {
-                  pattern: '~/**',
-                  group: 'internal',
-                },
-              ],
-              pathGroupsExcludedImportTypes: ['react'],
-              alphabetize: {
-                caseInsensitive: true,
-                order: 'asc',
-                orderImportKind: 'desc',
-              },
-            },
-          ],
+          // 'import/order': [
+          //   'error',
+          //   {
+          //     groups: [
+          //       'builtin',
+          //       'external',
+          //       'internal',
+          //       'parent',
+          //       'sibling',
+          //       'type',
+          //       'index',
+          //       'object',
+          //     ],
+          //     pathGroups: [
+          //       {
+          //         pattern: 'react',
+          //         group: 'builtin',
+          //       },
+          //       {
+          //         pattern: 'react-dom',
+          //         group: 'builtin',
+          //       },
+          //       {
+          //         pattern: '~/**',
+          //         group: 'internal',
+          //       },
+          //     ],
+          //     pathGroupsExcludedImportTypes: ['react'],
+          //     alphabetize: {
+          //       caseInsensitive: true,
+          //       order: 'asc',
+          //       orderImportKind: 'desc',
+          //     },
+          //   },
+          // ],
           'jsx-a11y/click-events-have-key-events': 'off',
           'jsx-a11y/no-autofocus': 'off',
           'jsx-a11y/no-static-element-interactions': 'off',
@@ -159,32 +159,32 @@ export default {
           'import/no-import-module-exports': 'off',
           'import/no-unresolved': 'error',
           'import/prefer-default-export': 'off',
-          'import/order': [
-            'error',
-            {
-              groups: [
-                'builtin',
-                'external',
-                'internal',
-                'parent',
-                'sibling',
-                'type',
-                'index',
-                'object',
-              ],
-              pathGroups: [
-                {
-                  pattern: '~/**',
-                  group: 'internal',
-                },
-              ],
-              alphabetize: {
-                caseInsensitive: true,
-                order: 'asc',
-                orderImportKind: 'desc',
-              },
-            },
-          ],
+          // 'import/order': [
+          //   'error',
+          //   {
+          //     groups: [
+          //       'builtin',
+          //       'external',
+          //       'internal',
+          //       'parent',
+          //       'sibling',
+          //       'type',
+          //       'index',
+          //       'object',
+          //     ],
+          //     pathGroups: [
+          //       {
+          //         pattern: '~/**',
+          //         group: 'internal',
+          //       },
+          //     ],
+          //     alphabetize: {
+          //       caseInsensitive: true,
+          //       order: 'asc',
+          //       orderImportKind: 'desc',
+          //     },
+          //   },
+          // ],
           'no-console': 'warn',
           'no-redeclare': 'off',
           // Prevents:
